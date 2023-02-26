@@ -1,0 +1,125 @@
+<div id="ball" style="
+  z-index:5;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:50px;
+  height:50px;
+  border-radius:50%;
+  background:green"></div>
+
+<div id="ball1" style="
+z-index:5;
+position:absolute;
+left:0px;
+top: 100px;
+width:50px;
+height:50px;
+border-radius:50%;
+background: blue"></div>
+
+<div id="ball2" style="
+z-index:5;
+position:absolute;
+left:0px;
+top: 200px;
+width:50px;
+height:50px;
+border-radius:50%;
+background: red"></div>
+
+<script>
+
+var velocityX = 5;
+var velocityY = 3;
+var positionX = Math.floor(Math.random() * window.innerWidth);
+var positionY = 0;
+var ball = document.getElementById('ball');
+
+var velocityX1 = 8;
+var velocityY1 = 7;
+var positionX1 = 100;
+var positionY1 = 10;
+var ball1 = document.getElementById('ball1');
+
+var velocityX2 = 10;
+var velocityY2 = 10;
+var positionX2 = 200;
+var positionY2 = 0;
+var ball2 = document.getElementById('ball2');
+
+// YOUR CODE 
+// ----------------
+function myFunction() {
+  var maxPositionX = window.innerWidth - 50;
+  var maxPositionY = window.innerHeight - 50;
+   if (positionY + velocityY > maxPositionY) {
+        velocityY = -velocityY;
+        ball.style.background = 'purple';
+    }
+    if (positionY + velocityY < 0) {
+        velocityY = -velocityY;
+        ball.style.background = 'yellow';
+    }
+    if (positionX + velocityX > maxPositionX) {
+        velocityX = -velocityX;
+        ball.style.background = 'green';
+    }
+    if (positionX + velocityX < 0) {
+        velocityX = -velocityX;
+        ball.style.background = 'black';
+    }
+    if (positionY === positionY2 && positionX === positionX2) {
+        velocityY = -velocityY;
+        ball.style.background = 'red';
+    }
+    positionX = positionX + velocityX;
+    positionY = positionY + velocityY;
+    ball.style.left = positionX + 'px';
+    ball.style.top = positionY + 'px';
+}
+
+setInterval(myFunction, 25);
+
+function myFunction1() {
+  var maxPositionX1 = window.innerWidth - 50;
+  var maxPositionY1 = window.innerHeight - 50;
+   if (positionY1 + velocityY1 > maxPositionY1 || positionY1 + velocityY1 < 0) {
+        velocityY1 = -velocityY1;
+        ball1.style.background = 'blue';
+    }
+    if (positionX1 + velocityX1 > maxPositionX1 || positionX1 + velocityX1 < 0) {
+        velocityX1 = -velocityX1;
+        ball1.style.background = 'pink';
+    }
+    positionX1 = positionX1 + velocityX1;
+    positionY1 = positionY1 + velocityY1;
+    ball1.style.left = positionX1 + 'px';
+    ball1.style.top = positionY1 + 'px';
+}
+
+setInterval(myFunction1, 25);
+
+function myFunction2() {
+  var maxPositionX2 = window.innerWidth - 50;
+  var maxPositionY2 = window.innerHeight - 50;
+   if (positionY2 + velocityY2 > maxPositionY2 || positionY2 + velocityY2 < 0) {
+        velocityY2 = -velocityY2;
+        ball2.style.background = 'orange';
+    }
+    if (positionX2 + velocityX2 > maxPositionX2 || positionX2 + velocityX2 < 0) {
+        velocityX2 = -velocityX2;
+        ball2.style.background = 'red';
+    }
+    positionX2 = positionX2 + velocityX2;
+    positionY2 = positionY2 + velocityY2;
+    ball2.style.left = positionX2 + 'px';
+    ball2.style.top = positionY2 + 'px';
+}
+
+setInterval(myFunction2, 25);
+</script>
+
+
+
+
